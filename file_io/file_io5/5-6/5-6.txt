@@ -1,0 +1,6 @@
+Kết quả: Tệp file sẽ chứa nội dung là "HELLO,world". Việc ghi vào fd1 sau khi di chuyển vị trí file offset của fd2 
+không ảnh hưởng đến fd2 vì fd2 đã được di chuyển về đầu tệp trước đó. Việc ghi vào fd3 không ảnh hưởng đến nội dung 
+của tệp vì fd3 trỏ vào một bản sao của tệp với vị trí file offset riêng.
+
+
+

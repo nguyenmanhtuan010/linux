@@ -1,0 +1,8 @@
+/*Suppose that a thread creates a child using fork(). When the child terminates, is it guaranteed that the resulting SIGCHLD
+signal will be delivered to the thread that called fork() (as opposed to some other thread in the process)?*/
+	Trong hệ điều hành POSIX, khi một tiến trình con kết thúc, tín hiệu SIGCHLD được gửi đến quy trình cha của tiến trình con. 
+Tuy nhiên, việc xác định luồng cụ thể nào trong quy trình cha nhận được tín hiệu này không được đảm bảo.
+	Trong một số hệ thống, tín hiệu SIGCHLD có thể được gửi đến một luồng bất kỳ trong quy trình cha mà hệ điều hành chọn.
+Điều này có thể dẫn đến các vấn đề về đồng bộ hóa và xử lý tín hiệu trong các ứng dụng đa luồng phức tạp.
+	Do đó, để đảm bảo rằng tín hiệu SIGCHLD sẽ được gửi đến một luồng cụ thể trong quy trình cha, cần phải sử dụng các 
+cơ chế đồng bộ hóa như mutex hoặc semaphore để đảm bảo chỉ có một luồng nhất định xử lý tín hiệu này.

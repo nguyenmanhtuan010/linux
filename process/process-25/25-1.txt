@@ -1,0 +1,10 @@
+/*
+If a child process makes the call exit(–1), what exit status (as returned by WEXITSTATUS())
+will be seen by the parent?
+*/
+Nếu một quá trình con gọi hàm exit(-1), mã thoát của quá trình con sẽ là -1. Tuy nhiên, 
+khi quá trình cha gọi hàm wait() hoặc waitpid() để lấy mã thoát của quá trình con, mã 
+thoát này sẽ được trả về dưới dạng một giá trị không âm bằng cách sử dụng macro WEXITSTATUS(status). 
+Vì vậy, trong trường hợp này, mã thoát trả về cho quá trình cha sẽ không phải là -1 mà sẽ là một giá 
+trị không âm được tính từ mã thoát của quá trình con (-1 trong trường hợp này). Để chính xác, mã thoát 
+trả về cho quá trình cha sẽ là 255 (0xFF) vì giá trị mã thoát trong Unix chỉ sử dụng 8 bit.

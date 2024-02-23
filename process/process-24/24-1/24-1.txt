@@ -1,0 +1,10 @@
+/*
+After a program executes the following series of fork() calls, how many new
+processes will result (assuming that none of the calls fails)?
+	fork();
+	fork();
+	fork();
+*/
+Lần gọi đầu tiên của fork() tạo ra một bản sao của quy trình gốc, nghĩa là có 2 quy trình.
+Lần gọi thứ hai của fork() tạo ra bản sao của cả 2 quy trình trước đó, dẫn đến tổng cộng 4 quy trình.
+Lần gọi cuối cùng của fork() tạo ra bản sao của cả 4 quy trình trước đó, dẫn đến tổng cộng 8 quy trình.

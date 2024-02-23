@@ -1,0 +1,8 @@
+/*Assuming that we can modify the program source code, how could we get a core
+dump of a process at a given moment in time, while letting the process continue
+execution?*/
+
+Trong mã nguồn của chương trình, có thể thêm mã để tạo core dump bằng cách sử dụng abort() hoặc raise(SIGABRT). 
+Điều này sẽ tạo ra một core dump và kết thúc chương trình.
+Cũng có thể tạo một hàm xử lý tín hiệu để chuyển tiếp tín hiệu SIGABRT sang SIG_DFL (hành động mặc định của tín hiệu), 
+sau đó gọi abort() để tạo core dump. Việc này cho phép chương trình tiếp tục thực thi sau khi core dump được tạo ra.

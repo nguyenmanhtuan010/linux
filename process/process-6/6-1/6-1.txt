@@ -1,0 +1,10 @@
+/*Compile the program in Listing 6-1 (mem_segments.c), and list its size using ls 
+–l.Although the program contains an array (mbuf) that is around 10 MB in size, the
+executable file is much smaller than this. Why is this?*/
+
+Lý do chính là vì kích thước của mảng mbuf (10 MB) chỉ là phần của kích thước của 
+vùng bộ nhớ dữ liệu không được khởi tạo (Uninitialized data segment). Khi biên dịch 
+chương trình, trình biên dịch sẽ chỉ thêm vào tệp thực thi kích thước cần thiết để 
+lưu trữ mảng này trong vùng bộ nhớ dữ liệu không được khởi tạo. Những biến như globBuf, 
+primes, và key được lưu trữ trong vùng bộ nhớ dữ liệu đã được khởi tạo, cũng chỉ thêm
+vào tệp thực thi kích thước cần thiết để lưu trữ giá trị khởi tạo ban đầu của chúng.
